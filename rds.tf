@@ -2,6 +2,7 @@ resource "aws_db_instance" "mysql_db" {
   identifier = "data-eng-project-db2"
 
   engine         = "mysql"
+  engine_version = "8.4"
   instance_class = "db.t4g.micro"
 
   allocated_storage = 20
