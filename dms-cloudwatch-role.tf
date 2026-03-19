@@ -1,5 +1,5 @@
 resource "aws_iam_role" "dms_cloudwatch_role" {
-  name = "dms-cloudwatch-logs-role"
+  name = "dms-cloudwatch-logs-role-2"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"

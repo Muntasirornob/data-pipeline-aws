@@ -6,6 +6,28 @@ resource "aws_dms_replication_task" "migration_task" {
   source_endpoint_arn = aws_dms_endpoint.source_endpoint.endpoint_arn
   target_endpoint_arn = aws_dms_endpoint.target_endpoint.endpoint_arn
 
+  replication_task_settings = jsonencode({
+    TargetMetadata = {
+      TargetSchema           = ""
+      SupportLobs            = true
+      FullLobMode            = false
+      LobChunkSize           = 0
+      LimitedSizeLobMode     = true
+      LobMaxSize             = 32
+      InlineLobMaxSize       = 0
+      LoadMaxFileSize        = 0
+      ParallelLoadThreads    = 0
+      ParallelLoadBufferSize = 0
+      BatchApplyEnabled      = false
+    }
+    FullLoadSettings = {
+      TargetTablePrepMode = "DROP_AND_CREATE"
+    }
+    Logging = {
+      EnableLogging = true
+    }
+  })
+
   table_mappings = jsonencode({
     rules = [
       {

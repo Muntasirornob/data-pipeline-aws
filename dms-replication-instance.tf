@@ -1,6 +1,6 @@
 resource "aws_dms_replication_instance" "replication_instance" {
   replication_instance_id    = "data-eng-project-replication"
-  replication_instance_class = "dms.t3.micro"
+  replication_instance_class = "dms.t3.small"
   allocated_storage          = 50
   publicly_accessible        = true
 

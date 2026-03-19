@@ -8,5 +8,7 @@ resource "aws_dms_endpoint" "target_endpoint" {
     bucket_folder           = "bronze_data"
     service_access_role_arn = aws_iam_role.dms_s3_role.arn
     add_column_name         = true
+    timestamp_column_name   = "dms_timestamp"
+    cdc_path                = "cdc"
   }
 }

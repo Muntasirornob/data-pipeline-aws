@@ -7,11 +7,16 @@ resource "aws_iam_policy" "s3_access_policy" {
       {
         Effect = "Allow"
         Action = [
+          "s3:GetObject",
           "s3:PutObject",
           "s3:DeleteObject",
-          "s3:PutObjectTagging"
+          "s3:PutObjectTagging",
+          "s3:ListBucket"
         ]
-        Resource = "arn:aws:s3:::db-engineering-project-9426-7946-4520-2/*"
+        Resource = [
+          "arn:aws:s3:::db-engineering-project-9426-7946-4520-2",
+          "arn:aws:s3:::db-engineering-project-9426-7946-4520-2/*"
+        ]
       }
     ]
   })
